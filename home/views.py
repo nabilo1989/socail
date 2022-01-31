@@ -5,8 +5,8 @@ from .models import Post
 
 class HomeView(View):
     def get(self, request):
-        posts = Post.objects.all()
-        return render(request, 'home/home.html', {'posts': posts})
+        post = Post.objects.all()
+        return render(request, 'home/home.html', {'posts': post})
 
 
 class PostDetailView(View):

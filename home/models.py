@@ -14,5 +14,5 @@ class Post(models.Model):
         return f'{self.slug}-{self.user}'
 
     def get_absolute_url(self):
-        return reverse('home:post_detail',args=(self.id,self.slug))
+        return reverse('home:post_detail', args=(self.id, self.slug))
 # Create your models here.
