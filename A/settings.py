@@ -13,6 +13,8 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
+import django.core.mail.backends.smtp
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Quick-start development settings - unsuitable for production
@@ -118,8 +120,18 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-AUTHENTICATION_BACKENDS=[
+AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
     'account.authenticated.EmailBackend',
 ]
 LOGIN_URL = 'account/login'
+
+# Google account
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend',
+EMAIL_HOST = 'smpt.gmail.com'
+EMAIL_HOST_USER = 'majidnabilo1989@gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_PASSWORD = 'wsyevulamwjfkvnv'
+EMAIL_USE_TLS=True
+DEFAULT_FROM_EMAIL='we social blog'
